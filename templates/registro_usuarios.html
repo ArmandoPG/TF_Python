@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulopagina %}
+   - Buscar usuario -
+{% endblock %}
+
+{% block titulotabla1 %}
+{% endblock %}
+
+{% block contenidotabla1 %}
+    <form action="" method="GET">
+        <input type="text" name="txtBusqueda" />
+        <input type="submit" value="buscar" />
+    </form>
+    {% if msj %}
+        <h3>{{ msj }}</h3>
+    {% endif %}
+
+    {% if usuario %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> Nombre</th>
+                    <th scope="col"> Apellidos</th>
+                    <th scope="col"> Usuario</th>
+                    <th scope="col"> Contraseña</th>
+                    <th scope="col"> Tipo</th>
+                    <th scope="col"> Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in usuario %}
+                    <tr>
+                        <td> {{ item.nombre }}</td>
+                        <td> {{ item.apellidos }}</td>
+                        <td> {{ item.nom_usuario }}</td>
+                        <td> {{ item.contrasena}}</td>
+                        <td> {{ item.tipo.tipo }}</td>
+                        <td><a type="button" class="btn btn-dark" href="{% url 'modificar_usuario' item.id %}" role="button">Editar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
+
+{% block titulotabla2 %}
+{% endblock %}
+
+{% block contenidotabla2 %}
+{% endblock %}

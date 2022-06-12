@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulopagina %}
+    - Buscar mesa -
+{% endblock %}
+
+{% block titulotabla1 %}
+{% endblock %}
+
+{% block contenidotabla1 %}
+    <form action="" method="GET">
+        <input type="text" name="txtBusqueda" />
+        <input type="submit" value="buscar" />
+    </form>
+    {% if msj %}
+        <h3>{{ msj }}</h3>
+    {% endif %}
+
+    {% if mesa %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> Número de serie</th>
+                    <th scope="col"> Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in mesa %}
+                    <tr>
+                        <td> {{ item.nSerie }}</td>
+                        <td><a type="button" class="btn btn-dark" href="{% url 'modificar_mesa' item.nSerie %}" role="button">Editar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
+{% block titulotabla2 %}
+{% endblock %}
+
+{% block contenidotabla2 %}
+{% endblock %}

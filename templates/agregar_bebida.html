@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulopagina %}
+   - Agregar bebida -
+{% endblock %}
+
+{% block titulotabla1 %}
+{% endblock %}
+
+
+{% block contenidotabla1 %}
+    {#    AGREGAR#}
+    <div>
+    <h2 style="font-family: 'Century Gothic'; color: #243b55;">Agregar nueva bebida</h2>
+    <form action="" method="POST">  {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Agregar">
+    </form>
+    </div>
+{% endblock %}
+
+
+{% block titulotabla2 %}
+{% endblock %}
+
+
+{% block contenidotabla2 %}
+{% endblock %}

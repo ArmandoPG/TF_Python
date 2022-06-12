@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulopagina %}
+    - Modificar ingrediente -
+{% endblock %}
+
+{% block titulotabla1 %}
+{#    MODIFICAR#}
+    <div>
+    <h2 style="font-family: 'Century Gothic'; color: #243b55;">Modificar Ingrediente</h2>
+    <form action="" method="POST">{% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Editar">
+    </form>
+    </div>
+{% endblock %}
+{% block titulotabla2 %}
+{% endblock %}
+{% block contenidotabla2 %}
+{% endblock %}

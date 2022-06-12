@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulopagina %}
+- Buscar bebida -
+{% endblock %}
+
+{% block titulotabla1 %}
+{% endblock %}
+
+{% block contenidotabla1 %}
+{#    BUSQUEDA#}
+    <div>
+    <h2 style="font-family: 'Century Gothic'; color: #243b55;">Buscar bebida</h2>
+    <form action="" method="GET">
+        <input type="text" name="txtBusqueda" />
+        <input type="submit" value="buscar" />
+    </form>
+
+    {% if msj %}
+        <h3>{{ msj }}</h3>
+    {% endif %}
+
+    {% if bebida %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> Nombre</th>
+                    <th scope="col"> Precio</th>
+                    <th scope="col"> Tipo</th>
+                    <th scope="col"> Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in bebida %}
+                    <tr>
+                        <td> {{ item.nombre }}</td>
+                        <td> {{ item.precio }}</td>
+                        <td> {{ item.tipo.categoria }}</td>
+                        <td><a type="button" class="btn btn-dark" href="{% url 'modificar_bebidas' item.id %}" role="button">Editar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    </div>
+{% endblock %}
+
+{% block titulotabla2 %}
+{% endblock %}
+
+{% block contenidotabla2 %}
+{% endblock %}

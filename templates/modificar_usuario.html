@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulopagina %}
+    - Modificar usuario -
+{% endblock %}
+{% block titulotabla1 %}
+{% endblock %}
+{% block contenidotabla1 %}
+{#    MODIFICAR#}
+    <div>
+    <h2 style="font-family: 'Century Gothic'; color: #243b55;">Modificar usuario</h2>
+    <form action="" method="POST">{% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Editar">
+    </form>
+    </div>
+{% endblock %}
+{% block titulotabla2 %}
+{% endblock %}
+{% block contenidotabla2 %}
+{% endblock %}

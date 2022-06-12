@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulopagina %}
+    - Buscar platillo -
+{% endblock %}
+
+{% block titulotabla1 %}
+{% endblock %}
+
+{% block contenidotabla1 %}
+
+    <form action="" method="GET">
+        <input type="text" name="txtBusqueda" />
+        <input type="submit" value="buscar" />
+    </form>
+    {% if msj %}
+        <h3>{{ msj }}</h3>
+    {% endif %}
+
+    {% if platillo %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> Nombre</th>
+                    <th scope="col"> Descripción</th>
+                    <th scope="col"> Precio</th>
+                    <th scope="col"> Tipo</th>
+                    <th scope="col"> Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in platillo %}
+                    <tr>
+                        <td> {{ item.nombre }}</td>
+                        <td> {{ item.descripcion }}</td>
+                        <td> {{ item.precio }}</td>
+                        <td> {{ item.tipo.nombre }}</td>
+                        <td><a type="button" class="btn btn-dark" href="{% url 'modificar_platillo' item.id %}" role="button">Editar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
+
+{% block titulotabla2 %}
+{% endblock %}
+
+{% block contenidotabla2 %}
+{% endblock %}
